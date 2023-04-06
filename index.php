@@ -31,7 +31,7 @@ if (file_exists($maintenance = __DIR__.'/rainy_day/storage/framework/maintenance
 |
 */
 
-require __DIR__.'/rainy_day/vendor/autoload.php';
+require '/home/httpd/vhosts/section-inf.ch/rainy.section-inf.ch/rainy_day/vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
