@@ -39,7 +39,7 @@
                 (des derniers 3 mois) 
             @endif 
         @else 
-            Méteo journalière de Lausanne 
+            Température journalière de Lausanne 
             @if(!isset($from)) 
                 (des derniers 3 mois) 
             @endif
