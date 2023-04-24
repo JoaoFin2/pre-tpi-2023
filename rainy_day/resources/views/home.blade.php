@@ -32,19 +32,7 @@
     </div>
 
     <div class="mt-8 bg-white rounded-lg shadow-lg p-6">
-    <h2 class="text-2xl font-bold mb-4">
-        @if ($display==0) 
-            Pluie journalière de Lausanne 
-            @if(!isset($from)) 
-                (des derniers 3 mois) 
-            @endif 
-        @else 
-            Méteo journalière de Lausanne 
-            @if(!isset($from)) 
-                (des derniers 3 mois) 
-            @endif
-        @endif
-    </h2>
+    <h2 class="text-2xl font-bold mb-4">Méteo journalière de Lausanne</h2>
 
     <div class="flex items-center mb-4">
         <form action="" method="post">
@@ -72,12 +60,13 @@
     <div class="flex justify-center">
         <div id="graph" style="width:100%;height:400px"></div>
     </div>
-
     <script type="text/javascript">
+
         var dates = <?php echo json_encode($dates); ?>;
-        var data = <?php echo json_encode($display == 0 ? $precipitations : $maxTemp); ?>;
-        var display = <?php echo json_encode($display); ?>;
-        var detailsUrlTemplate = "{{ route('details', ['year' => ':year', 'month' => ':month', 'day' => ':day', 'display' => $display]) }}";
+        var rainData = <?php echo json_encode($precipitations); ?>;
+        var temperatureData = <?php echo json_encode($maxTemp); ?>;
+        var detailsUrlTemplate = "{{ route('details', ['year' => ':year', 'month' => ':month', 'day' => ':day']) }}";
+
     </script>
 
     @vite('resources/js/graph.js')
@@ -87,16 +76,16 @@
     <div class="mt-8 bg-white rounded-lg shadow-lg p-6">
     <h2 class="text-2xl font-bold mb-4 m">Jours où il y a eu le plus de pluie</h2>
         <div class="flex items-center justify-center">
-            @foreach (($display == 0 ? $mostRain : $hottest) as $item) 
+            @foreach ($mostRain as $item) 
             <?php
             $date = date('d-m-Y', strtotime($item['date']));
             list($day, $month, $year) = explode('-', $date); 
             ?>
 
-            <a href="{{ route('details', ['year' => $year, 'month' => $month, 'day' => $day, 'display' => $display]) }}">
+            <a href="{{ route('details', ['year' => $year, 'month' => $month, 'day' => $day]) }}">
             <div class="bg-white rounded-lg shadow-lg p-6 mr-5 ml-5">
                 <h3 class="text-xl font-bold mb-2">{{ date('d-m-Y', strtotime($date)) }}</h3>
-                <p>{{ $display == 0 ? 'Quantité de pluie : ' . $item['precipitation'] . ' mm' : 'Température maximale : ' . $item['maxTemp'] . '°C' }}</p>
+                <p>Quantité de pluie : {{$item['precipitation']}} mm</p>
             </div>
             </a>
             @endforeach

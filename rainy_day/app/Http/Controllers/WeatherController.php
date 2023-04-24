@@ -16,7 +16,7 @@ class WeatherController extends Controller
         $this->weatherService = $weatherService;
     }
 
-    public function index(Request $request) 
+    public function index() 
     {
         $data = $this->weatherService->getWeatherData('date', 'asc');
 
@@ -25,12 +25,10 @@ class WeatherController extends Controller
 
         $separateData = $this->separateData($data);
 
-        $this->display = $request->input('display');
 
         return view('home', array_merge($separateData, [
             'mostRain' => $mostRain,
-            'hottest' => $hottest,
-            'display' => $this->display
+            'hottest' => $hottest
         ], $this->currentWeather()));
     }
 
@@ -45,14 +43,12 @@ class WeatherController extends Controller
         $hottest = $this->weatherService->getWeatherBetweenDates($from, $to, 'maxTemp', 'desc', 3);
         
         $separateData = $this->separateData($data);
-        $this->display = $request->input('display');
 
         return view('home', array_merge($separateData, [
             'from' => $from,
             'to' => $to,
             'mostRain' => $mostRain,
-            'hottest' =>$hottest,
-            'display' => $this->display
+            'hottest' =>$hottest
         ], $this->currentWeather()));
     }
 
@@ -82,7 +78,7 @@ class WeatherController extends Controller
     }
 
 
-    public function details(Request $request, $year, $month, $day)
+    public function details($year, $month, $day)
     {
         $data = $this->weatherService->getWeatherSpecificDate($year, $month, $day);
 
@@ -90,14 +86,11 @@ class WeatherController extends Controller
 
         $date = date('d-m-Y', strtotime($data['date']));
 
-        $this->display = $request->input('display');
-
         return view('details', [
             'date' => $date,
             'minTemp' => $data['minTemp'],
             'maxTemp' => $data['maxTemp'],
-            'precipitation' => $data['precipitation'],
-            'display' => $this->display
+            'precipitation' => $data['precipitation']
         ]);
     }
 }

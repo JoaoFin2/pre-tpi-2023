@@ -9,13 +9,7 @@
     <!-- Script pour les graphiques -->
     <script src="https://cdn.jsdelivr.net/npm/echarts@latest"></script>
 
-    <title>
-        @if ($display == 0) 
-            Rainy Day 
-        @else 
-            Warmy Weather 
-        @endif
-    </title>
+    <title>Rainy Day</title>
 
 </head>
 
