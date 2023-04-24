@@ -1,8 +1,5 @@
 var chart = echarts.init(document.getElementById('graph'));
 
-var seriesName = display == 0 ? 'Pluie' : 'Température';
-var seriesColor = display == 0 ? 'blue' : 'red';
-
 var option = {
     tooltip: {},
     xAxis: {
@@ -17,15 +14,26 @@ var option = {
         type: 'inside'
     }],
     series: [{
-        name: seriesName,
-        data: data,
+        name: 'Pluie',
+        data: rainData,
         type: 'line',
         showSymbol: true,
         lineStyle: {
-            color: seriesColor
+            color: 'blue'
         },
         itemStyle: {
-            color: seriesColor
+            color: 'blue'
+        }
+    }, {
+        name: 'Température',
+        data: temperatureData,
+        type: 'line',
+        showSymbol: true,
+        lineStyle: {
+            color: 'red'
+        },
+        itemStyle: {
+            color: 'red'
         }
     }]
 };
