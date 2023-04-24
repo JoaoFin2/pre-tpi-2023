@@ -38,7 +38,7 @@
         <p class="text-5xl font-bold">{{ $precipitation }} mm</p>
     </div>
 
-    <a href="{{ route('home', ['display' => $display]) }}" class="block text-center text-gray-500 mt-8">Retour à la page d'accueil</a>
+    <a href="{{ route('home') }}" class="block text-center text-gray-500 mt-8">Retour à la page d'accueil</a>
 </main>
 
 
