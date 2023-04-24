@@ -75,8 +75,8 @@
 
     <script type="text/javascript">
         var dates = <?php echo json_encode($dates); ?>;
-        var rainData = <?php echo json_encode($precipitations); ?>;
-        var temperatureData = <?php echo json_encode($maxTemp); ?>;
+        var data = <?php echo json_encode($display == 0 ? $precipitations : $maxTemp); ?>;
+        var display = <?php echo json_encode($display); ?>;
         var detailsUrlTemplate = "{{ route('details', ['year' => ':year', 'month' => ':month', 'day' => ':day', 'display' => $display]) }}";
     </script>
 
