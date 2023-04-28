@@ -12,6 +12,7 @@ class Meteosuisse extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'wind', 'gust', 'temperature', 'precipitation'
+        'date', 'temperature', 'precipitation'
     ];
+
 }
