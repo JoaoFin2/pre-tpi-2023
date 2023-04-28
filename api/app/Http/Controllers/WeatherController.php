@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Meteosuisse;
 use Illuminate\Http\Request;
 use App\Models\Weather;
 use Carbon\Carbon;
@@ -73,5 +74,18 @@ class WeatherController extends Controller
         
         
         return response()->json($weather);
+    }
+
+    public function addData(Request $request)
+    {
+        $data = $request->validate([
+            'wind' => $request->input('wind'),
+            'gust' => $request->input('gust'),
+            'temperature' => $request->input('temperature'),
+            'precipitation' => $request->input('precipitation')
+        ]);
+        $meteosuisse = Meteosuisse::create($data);
+
+        return response()->json($meteosuisse, 201);
     }
 }
