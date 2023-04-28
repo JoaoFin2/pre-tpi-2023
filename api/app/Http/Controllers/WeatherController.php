@@ -78,12 +78,12 @@ class WeatherController extends Controller
 
     public function addData(Request $request)
     {
-        $data = $request->validate([
+        $data = [
             'wind' => $request->input('wind'),
             'gust' => $request->input('gust'),
             'temperature' => $request->input('temperature'),
             'precipitation' => $request->input('precipitation')
-        ]);
+        ];
         $meteosuisse = Meteosuisse::create($data);
 
         return response()->json($meteosuisse, 201);
