@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('meteosuisses', function (Blueprint $table) {
+        Schema::create('meteo_suisse', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->float('wind');
             $table->float('gust');
             $table->float('temperature');
             $table->float('precipitation');
+            $table->dateTime('date');
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('meteosuisses');
+        Schema::dropIfExists('meteo_suisse');
     }
 };

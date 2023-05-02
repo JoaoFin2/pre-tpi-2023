@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Meteosuisse;
-use Illuminate\Http\Request;
-use App\Models\Weather;
 use Carbon\Carbon;
+use App\Models\Weather;
+use App\Models\MeteoSuisse;
+use Illuminate\Http\Request;
 
 class WeatherController extends Controller
 {
@@ -84,7 +84,7 @@ class WeatherController extends Controller
             'temperature' => $request->input('temperature'),
             'precipitation' => $request->input('precipitation')
         ];
-        $meteosuisse = Meteosuisse::create($data);
+        $meteosuisse = MeteoSuisse::create($data);
 
         return response()->json($meteosuisse, 201);
     }
