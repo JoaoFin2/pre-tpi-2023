@@ -22,7 +22,7 @@ RUN LATEST=$(wget -qO- https://chromedriver.storage.googleapis.com/LATEST_RELEAS
 
 # Install Python dependencies
 COPY requirements.txt .
-RUN pip install selenium
+RUN pip install selenium requests pytz
 
 # Set working directory
 WORKDIR /app

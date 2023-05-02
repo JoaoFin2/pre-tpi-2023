@@ -1,0 +1,6 @@
+API_URL=http://rainy.section-inf.ch/api/meteosuisse/store
+WIND_URL=https://www.meteosuisse.admin.ch/static/measured-values-app/index.html#lang=fr&param=messwerte-windgeschwindigkeit-kmh-10min&station=PRE&chart=hour
+TEMP_URL=https://www.meteosuisse.admin.ch/static/measured-values-app/index.html#lang=fr&param=messwerte-lufttemperatur-10min&chart=hour&station=PUY
+PRECIP_URL=https://www.meteosuisse.admin.ch/static/measured-values-app/index.html#lang=fr&param=messwerte-niederschlag-10min&chart=hour&station=LSN
+DIV_CLASS=//div[@class='measurement-map__detail-body']
+VALUE_CLASS=.//div[@class='measurement-map__detail--value']

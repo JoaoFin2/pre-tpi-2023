@@ -1,4 +1,5 @@
 selenium
 time
-re
+pytz
+requests
 datetime
