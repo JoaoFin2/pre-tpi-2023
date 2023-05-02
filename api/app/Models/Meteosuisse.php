@@ -2,17 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class MeteoSuisse extends Model
 {
-    use HasFactory;
+    protected $table = 'meteo_suisse';
 
     public $timestamps = false;
 
     protected $fillable = [
         'wind', 'gust', 'temperature', 'precipitation', 'date'
     ];
-
 }

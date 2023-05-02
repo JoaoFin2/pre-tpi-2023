@@ -76,16 +76,18 @@ class WeatherController extends Controller
         return response()->json($weather);
     }
 
-    public function addData(Request $request)
+    public function store(Request $request)
     {
         $data = [
             'wind' => $request->input('wind'),
             'gust' => $request->input('gust'),
             'temperature' => $request->input('temperature'),
-            'precipitation' => $request->input('precipitation')
+            'precipitation' => $request->input('precipitation'),
+            'date' => $request->input('date')
         ];
-        $meteosuisse = MeteoSuisse::create($data);
 
-        return response()->json($meteosuisse, 201);
+        MeteoSuisse::create($data);
+
+        return response()->json(['message' => 'Données insérées avec succès'], 201);
     }
 }

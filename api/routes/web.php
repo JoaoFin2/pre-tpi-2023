@@ -24,7 +24,7 @@ $router->get('/weather/{year}/{month}/{day}', 'WeatherController@date');
 $router->get('/weather/dates', 'WeatherController@chooseDates');
 
 
-$router->post('/meteosuisse/store', 'WeatherController@addData');
+$router->post('/meteosuisse/store', 'WeatherController@store');
 
 
 $router->get('/', function () use ($router) {

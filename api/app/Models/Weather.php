@@ -9,6 +9,8 @@ class Weather extends Model
 {
     use HasFactory;
 
+    protected $table = 'weather';
+    
     public $timestamps = false;
 
     protected $fillable = [
